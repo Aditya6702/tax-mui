@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { PaletteMode } from '@mui/material';
+import PropTypes from 'prop-types';
+
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,24 +14,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ToggleColorMode from './ToggleColorMode';
 
 const logoStyle = {
-  width: '140px',
-  height: 'auto',
+  width: '5.5rem',
+  height: '2.5rem',
   cursor: 'pointer',
 };
 
-interface AppAppBarProps {
-  mode: PaletteMode;
-  toggleColorMode: () => void;
-}
-
-function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
+function AppAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
+  const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const sectionElement = document.getElementById(sectionId);
     const offset = 128;
     if (sectionElement) {
@@ -84,12 +80,12 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 display: 'flex',
                 alignItems: 'center',
                 ml: '-18px',
-                px: 0,
+                
               }}
             >
               <img
                 src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                  '/assets/google-gemini-icon.svg'
                 }
                 style={logoStyle}
                 alt="logo of sitemark"
@@ -104,11 +100,11 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   </Typography>
                 </MenuItem>
                 <MenuItem
-                  onClick={() => scrollToSection('testimonials')}
+                  onClick={() => scrollToSection('dyk')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Testimonials
+                    About
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -119,14 +115,14 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                     Highlights
                   </Typography>
                 </MenuItem>
-                <MenuItem
+                {/* <MenuItem
                   onClick={() => scrollToSection('pricing')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
                     Pricing
                   </Typography>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem
                   onClick={() => scrollToSection('faq')}
                   sx={{ py: '6px', px: '12px' }}
@@ -145,7 +141,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
               }}
             >
               <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-              <Button
+              {/* <Button
                 color="primary"
                 variant="text"
                 size="small"
@@ -164,7 +160,7 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                 target="_blank"
               >
                 Sign up
-              </Button>
+              </Button> */}
             </Box>
             <Box sx={{ display: { sm: '', md: 'none' } }}>
               <Button
@@ -198,41 +194,41 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
                   <MenuItem onClick={() => scrollToSection('features')}>
                     Features
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('testimonials')}>
-                    Testimonials
+{/* <MenuItem onClick={() => scrollToSection('testimonials')}>
+                  //   Testimonials
+                  // </MenuItem>*/}
+                  <MenuItem onClick={() => scrollToSection('dyk')}>
+                    About
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('highlights')}>
                     Highlights
                   </MenuItem>
-                  <MenuItem onClick={() => scrollToSection('pricing')}>
-                    Pricing
-                  </MenuItem>
                   <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                   <Divider />
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-up/"
-                      target="_blank"
-                      sx={{ width: '100%' }}
-                    >
-                      Sign up
-                    </Button>
-                  </MenuItem>
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="outlined"
-                      component="a"
-                      href="/material-ui/getting-started/templates/sign-in/"
-                      target="_blank"
-                      sx={{ width: '100%' }}
-                    >
-                      Sign in
-                    </Button>
-                  </MenuItem>
+                      {/*// <MenuItem>
+                  //   <Button
+                  //     color="primary"
+                  //     variant="contained"
+                  //     component="a"
+                  //     href="/material-ui/getting-started/templates/sign-up/"
+                  //     target="_blank"
+                  //     sx={{ width: '100%' }}
+                  //   >
+                  //     Sign up
+                  //   </Button>
+                  // </MenuItem>
+                  // <MenuItem>
+                  //   <Button
+                  //     color="primary"
+                  //     variant="outlined"
+                  //     component="a"
+                  //     href="/material-ui/getting-started/templates/sign-in/"
+                  //     target="_blank"
+                  //     sx={{ width: '100%' }}
+                  //   >
+                  //     Sign in
+                  //   </Button>
+                  // </MenuItem>*/}
                 </Box>
               </Drawer>
             </Box>
@@ -242,5 +238,10 @@ function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
     </div>
   );
 }
+
+AppAppBar.propTypes = {
+  mode: PropTypes.oneOf(['dark', 'light']).isRequired,
+  toggleColorMode: PropTypes.func.isRequired,
+};
 
 export default AppAppBar;
