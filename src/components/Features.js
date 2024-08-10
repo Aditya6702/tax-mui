@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
@@ -49,163 +48,151 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 8 } }}>
-      <Grid container spacing={0}>
-        {/* <Grid item xs={6} md={6}> */}
-          <div>
-            <Typography component="h2" variant="h4" color="text.primary">
-              Product features
-            </Typography>
-            {/* // <Typography
-            //   variant="body1"
-            //   color="text.secondary"
-            //   sx={{ mb: { xs: 5, sm: 4 } }}
-            // >
-            //   Here you can provide a brief overview of the key features of the
-            //   product. For example, you could list the number of features, the types
-            //   of features, add-ons, or the benefits of the features.
-            // </Typography> */}
-          </div>
-          <Box
-            component={Card}
+    <Container id="features" sx={{ py: { xs: 2, sm: 10 } }}>
+      <Typography component="h2" variant="h4" color="text.primary" sx={{ mb: 2 }}>
+        Product features
+      </Typography>
+
+      {/* Stack for mobile layout */}
+      <Stack
+        direction="column"
+        spacing={2}
+        sx={{ width: '100%', display: { xs: 'flex', sm: 'none' } }}
+      >
+        {items.map(({ icon, title, description }, index) => (
+          <Card
+            key={index}
             variant="outlined"
+            component={Button}
+            onClick={() => handleItemClick(index)}
             sx={{
-              display: { xs: 'auto', sm: 'none' },
-              mt: 4,
+              p: 2,
+              height: 'fit-content',
+              backgroundColor:
+                selectedItemIndex === index ? 'action.selected' : undefined,
+              borderColor: (theme) => {
+                if (theme.palette.mode === 'light') {
+                  return selectedItemIndex === index
+                    ? 'primary.light'
+                    : 'grey.200';
+                }
+                return selectedItemIndex === index ? 'primary.dark' : 'grey.800';
+              },
             }}
           >
-            <Box sx={{ px: 2, pb: 2 }}>
-              <Typography color="text.primary" variant="body2" fontWeight="bold">
-                {selectedFeature.title}
-              </Typography>
-              <Typography color="text.secondary" variant="body2" sx={{ my: 0.5 }}>
-                {selectedFeature.description}
-              </Typography>
-              {/* <Link
-                color="primary"
-                variant="body2"
-                fontWeight="bold"
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                textAlign: 'left',
+                gap: 1,
+              }}
+            >
+              <Box
                 sx={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  '& > svg': { transition: '0.2s' },
-                  '&:hover > svg': { transform: 'translateX(2px)' },
-                }}
-              >
-                <span>Learn more</span>
-                <ChevronRightRoundedIcon
-                  fontSize="small"
-                  sx={{ mt: '1px', ml: '2px' }}
-                />
-              </Link> */}
-            </Box>
-          </Box>
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="flex-start"
-            spacing={1}
-            useFlexGap
-            sx={{ width: '100%', display: { xs: 'none', sm: 'flex' } }}
-          >
-            {items.map(({ icon, title, description }, index) => (
-              <Card
-                key={index}
-                variant="outlined"
-                component={Button}
-                onClick={() => handleItemClick(index)}
-                sx={{
-                  p: 3,
-                  height: 'fit-content',
-                  width: '100%',
-                  background: 'none',
-                  backgroundColor:
-                    selectedItemIndex === index ? 'action.selected' : undefined,
-                  borderColor: (theme) => {
+                  color: (theme) => {
                     if (theme.palette.mode === 'light') {
                       return selectedItemIndex === index
-                        ? 'primary.light'
-                        : 'grey.200';
+                        ? 'primary.main'
+                        : 'grey.300';
                     }
-                    return selectedItemIndex === index ? 'primary.dark' : 'grey.800';
+                    return selectedItemIndex === index
+                      ? 'primary.main'
+                      : 'grey.700';
                   },
+                }}
+              >
+                {icon}
+              </Box>
+              <Box>
+                <Typography
+                  color="text.primary"
+                  variant="body2"
+                  fontWeight="bold"
+                >
+                  {title}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  variant="body2"
+                  sx={{ my: 0.5 }}
+                >
+                  {description}
+                </Typography>
+              </Box>
+            </Box>
+          </Card>
+        ))}
+      </Stack>
+
+      {/* Grid for desktop layout */}
+      <Grid container spacing={2} sx={{ display: { xs: 'none', sm: 'flex' } }}>
+        {items.map(({ icon, title, description }, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <Card
+              variant="outlined"
+              component={Button}
+              onClick={() => handleItemClick(index)}
+              sx={{
+                p: 2,
+                height: 'fit-content',
+                backgroundColor:
+                  selectedItemIndex === index ? 'action.selected' : undefined,
+                borderColor: (theme) => {
+                  if (theme.palette.mode === 'light') {
+                    return selectedItemIndex === index
+                      ? 'primary.light'
+                      : 'grey.200';
+                  }
+                  return selectedItemIndex === index ? 'primary.dark' : 'grey.800';
+                },
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  textAlign: 'left',
+                  gap: 2,
                 }}
               >
                 <Box
                   sx={{
-                    width: '100%',
-                    display: 'flex',
-                    textAlign: 'left',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { md: 'center' },
-                    gap: 2.5,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      color: (theme) => {
-                        if (theme.palette.mode === 'light') {
-                          return selectedItemIndex === index
-                            ? 'primary.main'
-                            : 'grey.300';
-                        }
+                    color: (theme) => {
+                      if (theme.palette.mode === 'light') {
                         return selectedItemIndex === index
                           ? 'primary.main'
-                          : 'grey.700';
-                      },
-                    }}
-                  >
-                    {icon}
-                  </Box>
-                  <Box sx={{ textTransform: 'none' }}>
-                    <Typography
-                      color="text.primary"
-                      variant="body2"
-                      fontWeight="bold"
-                    >
-                      {title}
-                    </Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                      sx={{ my: 0.5 }}
-                    >
-                      {description}
-                    </Typography>
-                    {/* <Link
-                      color="primary"
-                      variant="body2"
-                      fontWeight="bold"
-                      sx={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        '& > svg': { transition: '0.2s' },
-                        '&:hover > svg': { transform: 'translateX(2px)' },
-                      }}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                      }}
-                    >
-                      <span>Learn more</span>
-                      <ChevronRightRoundedIcon
-                        fontSize="small"
-                        sx={{ mt: '1px', ml: '2px' }}
-                      />
-                    </Link> */}
-                  </Box>
+                          : 'grey.300';
+                      }
+                      return selectedItemIndex === index
+                        ? 'primary.main'
+                        : 'grey.700';
+                    },
+                  }}
+                >
+                  {icon}
                 </Box>
-              </Card>
-            ))}
-          </Stack>
-        </Grid>
-        {/* <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
-        >
-        </Grid> */}
-      {/* </Grid> */}
+                <Box>
+                  <Typography
+                    color="text.primary"
+                    variant="body2"
+                    fontWeight="bold"
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    color="text.secondary"
+                    variant="body2"
+                    sx={{ my: 0.5 }}
+                  >
+                    {description}
+                  </Typography>
+                </Box>
+              </Box>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   );
 }
