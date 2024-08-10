@@ -56,7 +56,7 @@ export default function Features() {
             <Typography component="h2" variant="h4" color="text.primary">
               Product features
             </Typography>
-            // <Typography
+            {/* // <Typography
             //   variant="body1"
             //   color="text.secondary"
             //   sx={{ mb: { xs: 5, sm: 4 } }}
@@ -64,7 +64,7 @@ export default function Features() {
             //   Here you can provide a brief overview of the key features of the
             //   product. For example, you could list the number of features, the types
             //   of features, add-ons, or the benefits of the features.
-            // </Typography>
+            // </Typography> */}
           </div>
           <Box
             component={Card}

@@ -194,9 +194,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection('features')}>
                     Features
                   </MenuItem>
-{/* <MenuItem onClick={() => scrollToSection('testimonials')}>
-                  //   Testimonials
-                  // </MenuItem>*/}
+                  <MenuItem onClick={() => scrollToSection('testimonials')}>
+                     Testimonials
+                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('dyk')}>
                     About
                   </MenuItem>
@@ -205,30 +205,30 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                   <Divider />
-                      {/*// <MenuItem>
-                  //   <Button
-                  //     color="primary"
-                  //     variant="contained"
-                  //     component="a"
-                  //     href="/material-ui/getting-started/templates/sign-up/"
-                  //     target="_blank"
-                  //     sx={{ width: '100%' }}
-                  //   >
-                  //     Sign up
-                  //   </Button>
-                  // </MenuItem>
-                  // <MenuItem>
-                  //   <Button
-                  //     color="primary"
-                  //     variant="outlined"
-                  //     component="a"
-                  //     href="/material-ui/getting-started/templates/sign-in/"
-                  //     target="_blank"
-                  //     sx={{ width: '100%' }}
-                  //   >
-                  //     Sign in
-                  //   </Button>
-                  // </MenuItem>*/}
+                       {/* <MenuItem>
+                     <Button
+                       color="primary"
+                       variant="contained"
+                       component="a"
+                       href="/material-ui/getting-started/templates/sign-up/"
+                       target="_blank"
+                       sx={{ width: '100%' }}
+                     >
+                       Sign up
+                     </Button>
+                   </MenuItem>
+                   <MenuItem>
+                     <Button
+                       color="primary"
+                       variant="outlined"
+                       component="a"
+                       href="/material-ui/getting-started/templates/sign-in/"
+                       target="_blank"
+                       sx={{ width: '100%' }}
+                     >
+                       Sign in
+                     </Button>
+                   </MenuItem> */}
                 </Box>
               </Drawer>
             </Box>
