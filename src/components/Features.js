@@ -2,39 +2,38 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import CalculateIcon from '@mui/icons-material/Calculate';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <CalculateIcon />,
+    title: 'Tax saving Calculator',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: 'url("/static/images/templates/templates-images/dash-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/dash-dark.png")',
+      'Our Tax Saving Calculator helps you estimate your potential savings by inputting various financial details. It provides a detailed breakdown of how different deductions, investments, and exemptions can impact your overall tax liability',
+    imageLight: 'url("/assets/calc.png")',
+    imageDark: 'url("/assets/calc.png")',
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <LibraryBooksIcon />,
+    title: 'Personalized tax plans',
     description:
-      'This item could provide information about the mobile app version of the product.',
-    imageLight: 'url("/static/images/templates/templates-images/mobile-light.png")',
-    imageDark: 'url("/static/images/templates/templates-images/mobile-dark.png")',
+      'With Personalized Tax Saving Plans, our app generates tailored strategies based on your financial profile. Leveraging advanced AI, it suggests specific actions and investments that maximize your savings and optimize your tax outcomes.',
+    imageLight: 'url("/assets/books.png")',
+    imageDark: 'url("/assets/books.png")',
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <SupervisorAccountIcon />,
+    title: 'Profession-specific tax advice',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
+      'Receive expert tax advice tailored to your profession, whether you\'re an IT employee, entrepreneur, or freelancer. Our app offers specialized tips and deductions relevant to your job role, ensuring you make the most of your tax-saving opportunities.',
     imageLight: 'url("/static/images/templates/templates-images/devices-light.png")',
     imageDark: 'url("/static/images/templates/templates-images/devices-dark.png")',
   },
@@ -50,9 +49,9 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
-      <Grid container spacing={6}>
-        <Grid item xs={12} md={6}>
+    <Container id="features" sx={{ py: { xs: 8, sm: 8 } }}>
+      <Grid container spacing={0}>
+        {/* <Grid item xs={6} md={6}> */}
           <div>
             <Typography component="h2" variant="h4" color="text.primary">
               Product features
@@ -60,40 +59,13 @@ export default function Features() {
             <Typography
               variant="body1"
               color="text.secondary"
-              sx={{ mb: { xs: 2, sm: 4 } }}
+              sx={{ mb: { xs: 5, sm: 4 } }}
             >
               Here you can provide a brief overview of the key features of the
               product. For example, you could list the number of features, the types
               of features, add-ons, or the benefits of the features.
             </Typography>
           </div>
-          <Grid container item gap={1} sx={{ display: { xs: 'auto', sm: 'none' } }}>
-            {items.map(({ title }, index) => (
-              <Chip
-                key={index}
-                label={title}
-                onClick={() => handleItemClick(index)}
-                sx={{
-                  borderColor: (theme) => {
-                    if (theme.palette.mode === 'light') {
-                      return selectedItemIndex === index ? 'primary.light' : '';
-                    }
-                    return selectedItemIndex === index ? 'primary.light' : '';
-                  },
-                  background: (theme) => {
-                    if (theme.palette.mode === 'light') {
-                      return selectedItemIndex === index ? 'none' : '';
-                    }
-                    return selectedItemIndex === index ? 'none' : '';
-                  },
-                  backgroundColor: selectedItemIndex === index ? 'primary.main' : '',
-                  '& .MuiChip-label': {
-                    color: selectedItemIndex === index ? '#fff' : '',
-                  },
-                }}
-              />
-            ))}
-          </Grid>
           <Box
             component={Card}
             variant="outlined"
@@ -102,17 +74,6 @@ export default function Features() {
               mt: 4,
             }}
           >
-            <Box
-              sx={{
-                backgroundImage: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? items[selectedItemIndex].imageLight
-                    : items[selectedItemIndex].imageDark,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                minHeight: 280,
-              }}
-            />
             <Box sx={{ px: 2, pb: 2 }}>
               <Typography color="text.primary" variant="body2" fontWeight="bold">
                 {selectedFeature.title}
@@ -120,7 +81,7 @@ export default function Features() {
               <Typography color="text.secondary" variant="body2" sx={{ my: 0.5 }}>
                 {selectedFeature.description}
               </Typography>
-              <Link
+              {/* <Link
                 color="primary"
                 variant="body2"
                 fontWeight="bold"
@@ -136,14 +97,14 @@ export default function Features() {
                   fontSize="small"
                   sx={{ mt: '1px', ml: '2px' }}
                 />
-              </Link>
+              </Link> */}
             </Box>
           </Box>
           <Stack
             direction="column"
             justifyContent="center"
             alignItems="flex-start"
-            spacing={2}
+            spacing={1}
             useFlexGap
             sx={{ width: '100%', display: { xs: 'none', sm: 'flex' } }}
           >
@@ -211,7 +172,7 @@ export default function Features() {
                     >
                       {description}
                     </Typography>
-                    <Link
+                    {/* <Link
                       color="primary"
                       variant="body2"
                       fontWeight="bold"
@@ -230,43 +191,21 @@ export default function Features() {
                         fontSize="small"
                         sx={{ mt: '1px', ml: '2px' }}
                       />
-                    </Link>
+                    </Link> */}
                   </Box>
                 </Box>
               </Card>
             ))}
           </Stack>
         </Grid>
-        <Grid
+        {/* <Grid
           item
           xs={12}
           md={6}
           sx={{ display: { xs: 'none', sm: 'flex' }, width: '100%' }}
         >
-          <Card
-            variant="outlined"
-            sx={{
-              height: '100%',
-              width: '100%',
-              display: { xs: 'none', sm: 'flex' },
-              pointerEvents: 'none',
-            }}
-          >
-            <Box
-              sx={{
-                m: 'auto',
-                width: 420,
-                height: 500,
-                backgroundSize: 'contain',
-                backgroundImage: (theme) =>
-                  theme.palette.mode === 'light'
-                    ? items[selectedItemIndex].imageLight
-                    : items[selectedItemIndex].imageDark,
-              }}
-            />
-          </Card>
-        </Grid>
-      </Grid>
+        </Grid> */}
+      {/* </Grid> */}
     </Container>
   );
 }

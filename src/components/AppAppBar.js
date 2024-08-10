@@ -14,8 +14,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ToggleColorMode from './ToggleColorMode';
 
 const logoStyle = {
-  width: '140px',
-  height: 'auto',
+  width: '5.5rem',
+  height: '2.5rem',
   cursor: 'pointer',
 };
 
@@ -80,12 +80,12 @@ function AppAppBar({ mode, toggleColorMode }) {
                 display: 'flex',
                 alignItems: 'center',
                 ml: '-18px',
-                px: 0,
+                
               }}
             >
               <img
                 src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                  '/assets/google-gemini-icon.svg'
                 }
                 style={logoStyle}
                 alt="logo of sitemark"
@@ -100,11 +100,11 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </Typography>
                 </MenuItem>
                 <MenuItem
-                  onClick={() => scrollToSection('testimonials')}
+                  onClick={() => scrollToSection('dyk')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    Testimonials
+                    About
                   </Typography>
                 </MenuItem>
                 <MenuItem
@@ -115,14 +115,14 @@ function AppAppBar({ mode, toggleColorMode }) {
                     Highlights
                   </Typography>
                 </MenuItem>
-                <MenuItem
+                {/* <MenuItem
                   onClick={() => scrollToSection('pricing')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
                     Pricing
                   </Typography>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem
                   onClick={() => scrollToSection('faq')}
                   sx={{ py: '6px', px: '12px' }}
@@ -141,7 +141,7 @@ function AppAppBar({ mode, toggleColorMode }) {
               }}
             >
               <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-              <Button
+              {/* <Button
                 color="primary"
                 variant="text"
                 size="small"
@@ -160,7 +160,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 target="_blank"
               >
                 Sign up
-              </Button>
+              </Button> */}
             </Box>
             <Box sx={{ display: { sm: '', md: 'none' } }}>
               <Button

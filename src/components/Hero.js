@@ -7,7 +7,8 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-
+// import './assets/banner-white.png'
+// import './assets/banner.jpeg'
 export default function Hero() {
   return (
     <Box
@@ -42,7 +43,7 @@ export default function Hero() {
               fontSize: 'clamp(3.5rem, 10vw, 4rem)',
             }}
           >
-            Our latest&nbsp;
+            Taxes with&nbsp;
             <Typography
               component="span"
               variant="h1"
@@ -52,7 +53,7 @@ export default function Hero() {
                   theme.palette.mode === 'light' ? 'primary.main' : 'primary.light',
               }}
             >
-              products
+              Gemini
             </Typography>
           </Typography>
           <Typography
@@ -60,9 +61,7 @@ export default function Hero() {
             color="text.secondary"
             sx={{ alignSelf: 'center', width: { sm: '100%', md: '80%' } }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality solutions
-            tailored to your needs. Elevate your experience with top-tier features
-            and services.
+            Transform your tax liabilities into savings with expert tips and tools—explore how you can start maximizing your benefits today by taking the first step!
           </Typography>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -71,7 +70,7 @@ export default function Hero() {
             useFlexGap
             sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
           >
-            <TextField
+            {/* <TextField
               id="outlined-basic"
               hiddenLabel
               size="small"
@@ -82,30 +81,37 @@ export default function Hero() {
                 autoComplete: 'off',
                 'aria-label': 'Enter your email address',
               }}
-            />
-            <Button variant="contained" color="primary">
-              Start now
+            /> */}
+            <Button variant="contained" color="primary" sx={{
+        margin: "2", // Adjust margin if needed
+        padding: "16px 32px", 
+        fontSize: "1.25rem", 
+        borderRadius: "8px", 
+            }}
+            href='/form'
+            >
+              Save Now
             </Button>
           </Stack>
-          <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
+          {/* <Typography variant="caption" textAlign="center" sx={{ opacity: 0.8 }}>
             By clicking &quot;Start now&quot; you agree to our&nbsp;
             <Link href="#" color="primary">
               Terms & Conditions
             </Link>
             .
-          </Typography>
+          </Typography> */}
         </Stack>
         <Box
           id="image"
           sx={(theme) => ({
             mt: { xs: 8, sm: 10 },
             alignSelf: 'center',
-            height: { xs: 200, sm: 700 },
+            height: { xs: 200, sm:400  },
             width: '100%',
             backgroundImage:
               theme.palette.mode === 'light'
-                ? 'url("/static/images/templates/templates-images/hero-light.png")'
-                : 'url("/static/images/templates/templates-images/hero-dark.png")',
+                ? 'url("/assets/banner-white.png")'
+                : 'url("/assets/banner-black.png")',
             backgroundSize: 'cover',
             borderRadius: '10px',
             outline: '1px solid',

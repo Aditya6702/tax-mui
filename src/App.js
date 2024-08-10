@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
@@ -18,6 +19,8 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import getLPTheme from './getLPTheme';
+import Dyk from './components/dyk'
+import Form from './components/form';
 
 function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
   return (
@@ -55,13 +58,11 @@ function ToggleCustomTheme({ showCustomTheme, toggleCustomTheme }) {
 }
 
 ToggleCustomTheme.propTypes = {
-  showCustomTheme: PropTypes.shape({
-    valueOf: PropTypes.func.isRequired,
-  }).isRequired,
+  showCustomTheme: PropTypes.bool.isRequired,
   toggleCustomTheme: PropTypes.func.isRequired,
 };
 
-export default function LandingPage() {
+function LandingContent() {
   const [mode, setMode] = React.useState('light');
   const [showCustomTheme, setShowCustomTheme] = React.useState(true);
   const LPtheme = createTheme(getLPTheme(mode));
@@ -84,20 +85,32 @@ export default function LandingPage() {
         <LogoCollection />
         <Features />
         <Divider />
-        <Testimonials />
+        {/* <Testimonials /> */}
+        <Divider />
+        <Dyk />
         <Divider />
         <Highlights />
-        <Divider />
-        <Pricing />
+        {/* <Pricing /> */}
         <Divider />
         <FAQ />
         <Divider />
         <Footer />
       </Box>
-      <ToggleCustomTheme
+      {/* <ToggleCustomTheme
         showCustomTheme={showCustomTheme}
         toggleCustomTheme={toggleCustomTheme}
-      />
+      /> */}
     </ThemeProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingContent />} />
+        <Route path="form" element={<Form />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

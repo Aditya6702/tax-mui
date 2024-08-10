@@ -38,8 +38,9 @@ export default function Footer() {
         py: { xs: 8, sm: 10 },
         textAlign: { sm: 'center', md: 'left' },
       }}
-    >
-      <Box
+    >Made by Adithya R
+
+      {/* <Box
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', sm: 'row' },
@@ -214,7 +215,7 @@ export default function Footer() {
             <LinkedInIcon />
           </IconButton>
         </Stack>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
