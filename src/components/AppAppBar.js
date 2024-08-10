@@ -194,9 +194,9 @@ function AppAppBar({ mode, toggleColorMode }) {
                   <MenuItem onClick={() => scrollToSection('features')}>
                     Features
                   </MenuItem>
-                  // <MenuItem onClick={() => scrollToSection('testimonials')}>
+{/* <MenuItem onClick={() => scrollToSection('testimonials')}>
                   //   Testimonials
-                  // </MenuItem>
+                  // </MenuItem>*/}
                   <MenuItem onClick={() => scrollToSection('dyk')}>
                     About
                   </MenuItem>
@@ -205,7 +205,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                   </MenuItem>
                   <MenuItem onClick={() => scrollToSection('faq')}>FAQ</MenuItem>
                   <Divider />
-                  // <MenuItem>
+                      {/*// <MenuItem>
                   //   <Button
                   //     color="primary"
                   //     variant="contained"
@@ -228,7 +228,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                   //   >
                   //     Sign in
                   //   </Button>
-                  // </MenuItem>
+                  // </MenuItem>*/}
                 </Box>
               </Drawer>
             </Box>
