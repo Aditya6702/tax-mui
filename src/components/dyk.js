@@ -24,8 +24,7 @@ const items = [
     icon: <CurrencyRupeeIcon />,
     title: 'Income Tax basics',
     description:
-      'Income up to ₹2.5 lakh is tax-free, and you can save more by investing in tax-saving instruments under Section 80C.
-',
+      'Income up to ₹2.5 lakh is tax-free, and you can save more by investing in tax-saving instruments under Section 80C.',
   },
   {
     icon: <HouseIcon />,
@@ -49,8 +48,7 @@ const items = [
     icon: <ShowChartIcon />,
     title: 'Capital Gains Tax',
     description:
-      'Long-term capital gains on equity above ₹1 lakh are taxed at 10%, but you can save tax by reinvesting in specified assets.
-',
+      'Long-term capital gains on equity above ₹1 lakh are taxed at 10%, but you can save tax by reinvesting in specified assets.',
   },
   {
     icon: <PaymentIcon />,
