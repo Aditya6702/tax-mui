@@ -24,37 +24,39 @@ const items = [
     icon: <CurrencyRupeeIcon />,
     title: 'Income Tax basics',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Income up to ₹2.5 lakh is tax-free, and you can save more by investing in tax-saving instruments under Section 80C.
+',
   },
   {
     icon: <HouseIcon />,
     title: 'Home Loan Benefits',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Interest on a home loan can save you up to ₹2 lakh per year in tax deductions under Section 24(b).',
   },
   {
     icon: <MonitorHeartIcon />,
     title: 'Health Insurance(80-D)',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'You can claim up to ₹25,000 for health insurance premiums under Section 80D, and an additional ₹50,000 if insuring parents.',
   },
   {
     icon: <SavingsIcon />,
     title: 'House rental allowance',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'You can claim HRA exemption if you live in a rented house, even if you own property, provided you meet certain conditions.',
   },
   {
     icon: <ShowChartIcon />,
     title: 'Capital Gains Tax',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Long-term capital gains on equity above ₹1 lakh are taxed at 10%, but you can save tax by reinvesting in specified assets.
+',
   },
   {
     icon: <PaymentIcon />,
     title: 'Tax Deduction(80-C)',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Investments in PPF, ELSS, and NSC can help you save up to ₹1.5 lakh per year in taxes under Section 80C.',
   },
 ];
 
